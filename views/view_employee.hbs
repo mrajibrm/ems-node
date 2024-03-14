@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="/">View Employees</a></li>
+                <li><a href="/addEmployeeForm">Add Employee</a></li>
+                <li><a href="/updateEmployeeForm">Update Employee</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{#if message}}
+            <p>{{message}}</p>
+        {{/if}}
+
+        {{#if employees.length}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>EmpId</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each employees}}
+                        <tr>
+                            <td>{{this.emp_id}}</td>
+                            <td>{{this.name}}</td>
+                            <td>{{this.position}}</td>
+                            <td>{{this.salary}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No employees found.</p>
+        {{/if}}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Employee Management System</p>
+    </footer>
+</body>
+</html>
